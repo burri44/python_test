@@ -3,25 +3,27 @@ Created on Dec 26, 2019
 
 @author: nicolaburri
 '''
-class Employee:
-    def __init__(self, first, last, pay):
-        self.first = first
-        self.last = last
-        self.pay = pay
-        self.email = first + '.' + last + 'Gcompany.com'
+num = 600851475143
+grosste_primzahl = 0
+
+#kanns dividiert werden, Rest 0?
+for x in range(2, num):
+    if num % x == 0:
+        print(x, "--> kann dividiert werden")
         
-    def fullname(self):
-        return '{} {}'.format(self.first,self.last)
+        #primCheck
+        primZahl = True
+        for y in range(2, x):
+            if x % y == 0:
+                print(x, "--> ist KEINE Primzahl")
+                primZahl = False
+                break
+            
+        if primZahl:
+            grosste_primzahl = x
+            
+print("Groesste Primzahl ist: ", grosste_primzahl)            
+            
     
-    def apply_raise(self):
-        self.pay = int(self.pay * 1.04)
-        
-
-emp_1 = Employee('Corey', 'Schaefer', 50000)
-emp_2 = Employee('Cedi', 'Cedigang', 10000)
-
-
-
-print(emp_1.pay)
-emp_1.apply_raise()
-print(emp_1.pay)
+    
+    
